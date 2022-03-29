@@ -140,14 +140,14 @@ $d = array(
                     ),
             'attributes'=>array(
 		   array('attributeId'=>'782','attributeValueId'=>'315399')
-		  
+
                 ),
         ),
     )
 );
 
 
-$supplierid = "1";
+$supplierid = "187768";
 
 function request($url,$post=1,$custom=1){
     global $d;
@@ -167,7 +167,7 @@ function request($url,$post=1,$custom=1){
     }
 
     curl_setopt($ch,CURLOPT_HTTPHEADER,array(
-	    'Authorization: Basic '. base64_encode('1:1'),
+	    'Authorization: Basic '. base64_encode('VNulVs4xqzZXsfmw7OeM:GFb0z5NeFPq9yQZapqUw'),
 	    'Content-Type: application/json',
 	)
       );
@@ -193,7 +193,7 @@ function request($url,$post=1,$custom=1){
 	    return ($response);
 	}
 
-      
+
     }
 
 #$res = request("https://api.trendyol.com/sapigw/suppliers/187768/v2/products",1,0);
