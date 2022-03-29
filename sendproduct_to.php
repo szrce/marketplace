@@ -167,7 +167,7 @@ function request($url,$post=1,$custom=1){
     }
 
     curl_setopt($ch,CURLOPT_HTTPHEADER,array(
-	    'Authorization: Basic '. base64_encode('VNulVs4xqzZXsfmw7OeM:GFb0z5NeFPq9yQZapqUw'),
+	    'Authorization: Basic '. base64_encode('1:1'),
 	    'Content-Type: application/json',
 	)
       );
