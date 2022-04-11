@@ -184,6 +184,7 @@ echo "<ul class='deep deep_".$i."_"."$deep'>";
 }*/
 
 
+
 function showsub_Category($subcat,$si=0,$sdeep=0){
 
   for($si=0; $si<count($subcat); $si++){
@@ -194,7 +195,7 @@ function showsub_Category($subcat,$si=0,$sdeep=0){
                 if(!count($subcat[$si]['attributeValues']) > 0){
                   echo "<div class=\"form-group\">
                     <label for=\"exampleInputEmail1\">{$subcat[$si]['attribute']['name']}</label>
-                    <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\">
+                    <input type=\"email\" class=\"form-control\" id=\"{$subcat[$si]['attribute']['id']}\" aria-describedby=\"emailHelp\">
                     <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>
                   </div>";
                   continue;
@@ -202,10 +203,10 @@ function showsub_Category($subcat,$si=0,$sdeep=0){
                 $is_required = ($subcat[$si]['required']) ? '<span style="color:red">*</span>' : null;
                 echo "<div class=\"form-group\">
                   <label for=\"exampleFormControlSelect1\">{$subcat[$si]['attribute']['name']} {$is_required}</label>
-                  <select class=\"form-control\" id=\"exampleFormControlSelect1\">";
+                  <select class=\"form-control\" id=\"{$subcat[$si]['attribute']['id']}\">";
 
                 foreach($subcat[$si]['attributeValues'] as $val){
-                    echo "<option>{$val['name']}</option>";
+                    echo "<option id=\"{$val['id']}\">{$val['name']}</option>";
                 }
                 echo '</select>
                 </div>';
