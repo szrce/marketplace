@@ -1,6 +1,6 @@
 <?php
 
-require_once('function_new_sezer2.php');
+require_once('requests.php');
 $xmlheader = 1;
 if($xmlheader){
     header("Content-type: text/xml; charset=utf-8");
