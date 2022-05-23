@@ -14,6 +14,12 @@ function get_store_attribute($id){
               'method'=>'post'
 
           ),
+          'make_package'=>
+            array(
+              'url'=>"https://apis.ciceksepeti.com/api/v1/Order/readyforcargowithcsintegration",
+              'method'=>'put'
+
+          ),
           'headers'=>array(
             'x-api-key:{api_2}',
             'Content-Type: application/json'
@@ -51,7 +57,7 @@ function get_store_attribute($id){
           ),
           'get_packagelist'=>
             array(
-              'url'=>"https://oms-external.hepsiburada.com/packages/merchantid/{merchantid}?offset=1&limit=10",
+              'url'=>"https://oms-external.hepsiburada.com/packages/merchantid/{merchantid}?",
               'method'=>'get'
 
           ),
@@ -64,7 +70,7 @@ function get_store_attribute($id){
         array('name'=>'hb_test','api_1'=>null,'api_2'=>null,'ayar_1'=>null,'ayar_2'=>null,
           'get_order'=>
             array(
-              'url'=>"https://oms-external-sit.hepsiburada.com/orders/merchantid/{merchantid}?offset=0&limit=100",
+              'url'=>"https://oms-external-sit.hepsiburada.com/orders/merchantid/{merchantid}?offset=0&limit=10",
               'method'=>'get'
 
           ),
@@ -76,7 +82,7 @@ function get_store_attribute($id){
           ),
           'get_packagelist'=>
             array(
-              'url'=>"https://oms-external-sit.hepsiburada.com/packages/merchantid/{merchantid}?offset=1&limit=10",
+              'url'=>"https://oms-external-sit.hepsiburada.com/packages/merchantid/{merchantid}?",
               'method'=>'get'
 
           ),
@@ -142,12 +148,18 @@ function Request($store_id,$request_type,$postfield=null){
           $type = $store_info[$request_type]['method'];
       }
 
+
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_URL, $url);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       if($type == 'post'){
         curl_setopt($ch, CURLOPT_POSTFIELDS, $postfield);
       }
+      if($type == 'put'){
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $postfield);
+      }
+
 
       curl_setopt($ch, CURLOPT_ENCODING, "");
       curl_setopt($ch, CURLOPT_MAXREDIRS, 10);
