@@ -1,3 +1,5 @@
+<?php
+
 #$res = request("https://api.trendyol.com/sapigw/suppliers/187768/v2/products",1,0);
 #$get_brand = request("https://api.trendyol.com/sapigw/brands",0,0);
 #$get_category = request("https://api.trendyol.com/sapigw/product-categories",0,0);
